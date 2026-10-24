@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-950: #050d1a;
+  --color-navy-900: #0a1628;
+  --color-navy-800: #10203c;
+  --color-navy-700: #173250;
+  --color-charcoal-900: #0d1117;
+  --color-charcoal-800: #161c24;
+  --color-accent: #38bdf8;
+  --color-accent-soft: #7dd3fc;
+  --color-cyan-glow: #22d3ee;
+  --font-sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-navy-950);
+  color: #e2e8f0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.35);
+  color: #ffffff;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Subtle network-topology backdrop: faint node grid, no heavy effects. */
+.bg-topology {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(56, 189, 248, 0.22) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

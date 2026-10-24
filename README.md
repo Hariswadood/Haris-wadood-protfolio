@@ -1,1 +1,160 @@
-# Haris-wadood-protfolio
+# Haris Wadood — Networking Portfolio
+
+A personal portfolio website for Haris Wadood, a BS Computer Science student at UET
+Mardan working toward a career in enterprise and data centre networking.
+
+## Project overview
+
+The site presents, using only verified facts from his real background:
+
+- **About** — education, career direction, training and experience summary
+- **Skills** — routing & switching, network services, network security, monitoring, tools
+- **Experience** — Networking Intern at the ZTBL Data Centre, Network Department
+- **Certifications** — CCNA 200-301 training (Corvit Systems Peshawar) and a System
+  Administrator course (NAVTTC)
+- **Projects** — Packet Tracer networking labs plus the AI Network Copilot final year
+  project (in progress)
+- **Blog** — original technical articles, with further ideas listed as planned only
+- **Contact** — email and LinkedIn links (no contact form)
+- **CV download** — the real CV PDF served from `public/cv/CV_HarisWadood.pdf`
+
+## Honesty rules applied throughout
+
+- No invented employment history, qualifications, certifications, achievements,
+  testimonials, skill percentages, certificate IDs, verification URLs, screenshots or
+  links.
+- Haris has **not** passed the official Cisco CCNA certification exam. The site says
+  "CCNA 200-301 Training" and shows no official Cisco CCNA badge.
+- The AI Network Copilot FYP is labelled **in progress**; planned features are kept
+  separate from completed work. It is not claimed to be deployed at UET Mardan.
+- Repository and demo buttons for projects are disabled placeholders until a real
+  repository exists. No fake GitHub or demo links are used.
+- The profile photo is an "HW" initials block — never a fake photograph.
+- Certificate images and topology diagrams are labelled placeholders until real files
+  are uploaded.
+
+## Technology stack
+
+- Next.js 16 (App Router) with TypeScript
+- Tailwind CSS v4
+- lucide-react icons
+- CSS-only restrained animations (no animation library, keeping the bundle small)
+- Statically generated pages wherever possible
+
+## Features
+
+- Responsive dark navy/charcoal design with blue/cyan accents
+- Unique title/description metadata and canonical URLs on every page
+- XML sitemap generated from real pages (`app/sitemap.ts`) and `robots.txt`
+  (`app/robots.ts`)
+- Open Graph metadata and JSON-LD (`Person`, `WebSite`, `BlogPosting`) using only
+  real facts
+- Custom 404 page
+- Semantic HTML, keyboard focus states, alt text and reduced-motion support
+- Optional Google Analytics via environment variable only; the site works fully
+  without it
+
+## Local installation
+
+Requirements: Node.js 20+ and npm.
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+## Commands
+
+```bash
+npm run dev    # development server
+npm run build  # production build (also type-checks and lints)
+npm run start  # serve the production build
+npm run lint   # lint
+```
+
+## Environment variables
+
+Copy `.env.example` to `.env.local` and adjust:
+
+```bash
+cp .env.example .env.local
+```
+
+| Variable | Purpose |
+| --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Production URL used for canonical URLs, sitemap and Open Graph tags. Defaults to a placeholder Vercel-style URL; replace it with the real domain after deployment. The site is **not** live at the placeholder address. |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Optional Google Analytics measurement ID (`G-XXXXXXXXXX`). Leave unset to run without analytics. |
+
+Never commit real secrets. `.env*` files are gitignored (except `.env.example`).
+
+## Vercel deployment instructions
+
+1. Push this repository to GitHub (see below).
+2. Sign in to Vercel and choose **Add New → Project**.
+3. Import the GitHub repository. Vercel auto-detects Next.js; keep the defaults.
+4. Set `NEXT_PUBLIC_SITE_URL` to the production domain (the Vercel-assigned domain,
+   or a custom domain after connecting one).
+5. Optionally set `NEXT_PUBLIC_GA_MEASUREMENT_ID`.
+6. Click **Deploy**, then test on desktop and mobile.
+7. To connect a custom domain: Vercel project → **Settings → Domains**, add the
+   domain and follow the DNS instructions. HTTPS is automatic.
+8. After any GitHub push to the production branch, Vercel redeploys automatically.
+
+Never claim a live deployment URL until the deployment has actually succeeded.
+
+## Publishing to GitHub
+
+```bash
+git init
+git add .
+git commit -m "Initial networking portfolio"
+git branch -M main
+git remote add origin https://github.com/<your-username>/haris-wadood-networking-portfolio.git
+git push -u origin main
+```
+
+Replace `<your-username>` with the real GitHub username. Check `git remote -v`
+before adding a remote if Git is already initialised.
+
+## SEO setup
+
+- Every page sets its own title, description and canonical URL (see each
+  `page.tsx` and `app/layout.tsx`).
+- The sitemap is generated from the real page list; update `app/sitemap.ts` when
+  pages are added.
+- `robots.txt` is generated by `app/robots.ts` and points at the sitemap.
+- JSON-LD structured data lives in `app/layout.tsx` (Person, WebSite) and
+  `app/blog/[slug]/page.tsx` (BlogPosting).
+
+## Google Search Console setup
+
+1. Deploy the site and note its real production URL.
+2. Open [Google Search Console](https://search.google.com/search-console) and add
+   the site as a property.
+3. Verify ownership (the DNS or HTML-file method Vercel documents for your domain).
+4. Submit the sitemap: `https://<your-domain>/sitemap.xml`.
+5. Use URL Inspection on the homepage and request indexing.
+6. Monitor the Coverage and Performance reports for indexing errors, impressions
+   and search queries.
+
+Indexing and ranking depend on Google and cannot be guaranteed.
+
+## Screenshots
+
+Screenshots section: intentionally empty for now. The site currently uses labelled
+placeholder blocks for the profile photo, certificate images, topology diagrams and
+the FYP architecture diagram. Replace each placeholder with a real image or file
+when available, and add screenshots here afterwards.
+
+## Pending / placeholder items
+
+- Profile photograph: "HW" initials placeholder on the homepage hero.
+- Certificate images: placeholders on the Certifications page.
+- Topology diagrams: placeholders on project cards.
+- FYP architecture diagram: placeholder on the Projects page.
+- Project GitHub repositories and live demos: disabled placeholders (no links yet).
+- Blog: 3 articles published; 7 further ideas listed on the blog index as planned
+  only, with no article pages.
+- Light/dark mode toggle: not implemented; the design is dark-only by intent.
